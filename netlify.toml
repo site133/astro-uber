@@ -1,8 +1,2 @@
 [dev]
   targetPort = 3000
-  
-[[redirects]]
-  from = "https://code-uber.netlify.app/*"
-  to = "https://code-uber.netlify.app/:splat"
-  status = 200
-  force = true
