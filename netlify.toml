@@ -4,5 +4,5 @@
 [[redirects]]
   from = "https://code-uber.netlify.app/*"
   to = "https://code-uber.netlify.app/:splat"
-  status = 301
+  status = 404
   force = true
