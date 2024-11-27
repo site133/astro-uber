@@ -1,2 +1,9 @@
 [dev]
   targetPort = 3000
+
+  [[redirects]]
+  from = "/search"
+  to = "https://api.mysearch.com"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
