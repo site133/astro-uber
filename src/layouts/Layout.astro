@@ -4,6 +4,7 @@ import Footer from '@components/Footer.astro';
 import Header from '@components/Header.astro';
 import { fetchData } from '@data/siteConfig';
 import '@styles/globals.css';
+import fullpage from 'fullpage.js';
 
 interface Props {
     title: string;
@@ -72,13 +73,22 @@ function formatCanonicalURL(url: string | URL) {
     </head>
     <body class="antialiased">
         <Header {...configData.header} data-sb-field-path={`${configData._id}:header`} />
-<main class="pt-[72px] sm:pt-[80px]">
-        <slot />
- </main>
+        <main id="fullpage" class="pt-[72px] sm:pt-[80px]">
+            <div class="section">
+                <slot />
+            </div>
+        </main>
         <Footer {...configData.footer} data-sb-field-path={`${configData._id}:footer`} />
         <script is:inline>
             window.addEventListener('stackbitObjectsChanged', () => {
                 window.location.reload();
+            });
+        </script>
+        <script is:inline>
+            new fullpage('#fullpage', {
+                autoScrolling: true,
+                navigation: true,
+                // Vous pouvez ajouter d'autres options de configuration ici
             });
         </script>
     </body>
